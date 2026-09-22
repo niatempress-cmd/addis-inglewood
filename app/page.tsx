@@ -7,59 +7,36 @@ const HONEYBOOK_EMBED_URL =
 
 const HERO_IMAGE = 'https://i.ibb.co/kfq11d0/2C4A2804.jpg';
 
-const SPACE_IMAGES = [
-  'https://i.ibb.co/kfq11d0/2C4A2804.jpg',
-  'https://i.ibb.co/ytnD7c8/2C4A2813.jpg',
-  'https://i.ibb.co/vC4XWD0B/2-C4-A2859-2.jpg',
-  'https://i.ibb.co/tw187KfC/photo-2026-08-20-23-41-08.jpg',
-  'https://i.ibb.co/1tm33fCy/photo-2026-08-20-23-41-11.jpg',
-  'https://i.ibb.co/7NYHdZ1b/photo-2026-08-20-23-41-15.jpg',
-  'https://i.ibb.co/j9Ny5g97/photo-2026-08-20-23-41-18.jpg',
-  'https://i.ibb.co/JWcH7NyH/photo-2026-08-20-23-41-22.jpg',
-  'https://i.ibb.co/1GTBxw57/photo-2026-08-20-23-41-31.jpg',
-  'https://i.ibb.co/CK7DDJtM/photo-2026-08-20-23-41-33.jpg',
-  'https://i.ibb.co/PZ4hxWQJ/photo-2026-08-20-23-41-36.jpg',
-  'https://i.ibb.co/1fY0k8F6/photo-2026-08-20-23-41-44.jpg',
-  'https://i.ibb.co/gFgkHX7t/photo-2026-08-20-23-41-46.jpg',
-  'https://i.ibb.co/6cvjbDgZ/photo-2026-08-20-23-41-48.jpg',
-  'https://i.ibb.co/GfPpWqmp/photo-2026-08-20-23-46-33.jpg',
-  'https://i.ibb.co/8LK6b9CG/IMG-4735.avif',
-  'https://i.ibb.co/8L8hyDzn/IMG-4736.avif',
-  'https://i.ibb.co/xSwCVxXP/IMG-4738.avif',
-];
-
-const WALKTHROUGH_VIDEOS = [
-  {
-    title: 'Space Walkthrough 1',
-    url: 'https://streamable.com/e/twygvk?autoplay=0',
-  },
-  {
-    title: 'Space Walkthrough 2',
-    url: 'https://streamable.com/e/asw8yq?autoplay=0',
-  },
-  {
-    title: 'Space Walkthrough 3',
-    url: 'https://streamable.com/e/bre62w?autoplay=0',
-  },
+// All space media (Photos first, followed by space walkthrough videos)
+const SPACE_MEDIA = [
+  { type: 'image', url: 'https://i.ibb.co/kfq11d0/2C4A2804.jpg' },
+  { type: 'image', url: 'https://i.ibb.co/ytnD7c8/2C4A2813.jpg' },
+  { type: 'image', url: 'https://i.ibb.co/vC4XWD0B/2-C4-A2859-2.jpg' },
+  { type: 'image', url: 'https://i.ibb.co/tw187KfC/photo-2026-08-20-23-41-08.jpg' },
+  { type: 'image', url: 'https://i.ibb.co/1tm33fCy/photo-2026-08-20-23-41-11.jpg' },
+  { type: 'image', url: 'https://i.ibb.co/7NYHdZ1b/photo-2026-08-20-23-41-15.jpg' },
+  { type: 'image', url: 'https://i.ibb.co/j9Ny5g97/photo-2026-08-20-23-41-18.jpg' },
+  { type: 'image', url: 'https://i.ibb.co/JWcH7NyH/photo-2026-08-20-23-41-22.jpg' },
+  { type: 'image', url: 'https://i.ibb.co/1GTBxw57/photo-2026-08-20-23-41-31.jpg' },
+  { type: 'image', url: 'https://i.ibb.co/CK7DDJtM/photo-2026-08-20-23-41-33.jpg' },
+  { type: 'image', url: 'https://i.ibb.co/PZ4hxWQJ/photo-2026-08-20-23-41-36.jpg' },
+  { type: 'image', url: 'https://i.ibb.co/1fY0k8F6/photo-2026-08-20-23-41-44.jpg' },
+  { type: 'image', url: 'https://i.ibb.co/gFgkHX7t/photo-2026-08-20-23-41-46.jpg' },
+  { type: 'image', url: 'https://i.ibb.co/6cvjbDgZ/photo-2026-08-20-23-41-48.jpg' },
+  { type: 'image', url: 'https://i.ibb.co/GfPpWqmp/photo-2026-08-20-23-46-33.jpg' },
+  { type: 'image', url: 'https://i.ibb.co/8LK6b9CG/IMG-4735.avif' },
+  { type: 'image', url: 'https://i.ibb.co/8L8hyDzn/IMG-4736.avif' },
+  { type: 'image', url: 'https://i.ibb.co/xSwCVxXP/IMG-4738.avif' },
+  { type: 'video', url: 'https://streamable.com/e/twygvk?autoplay=0' },
+  { type: 'video', url: 'https://streamable.com/e/asw8yq?autoplay=0' },
+  { type: 'video', url: 'https://streamable.com/e/bre62w?autoplay=0' },
 ];
 
 const PAST_EVENT_VIDEOS = [
-  {
-    title: 'Event Footage 1',
-    url: 'https://streamable.com/e/zso4ux?autoplay=0',
-  },
-  {
-    title: 'Event Footage 2',
-    url: 'https://streamable.com/e/gkwq5z?autoplay=0',
-  },
-  {
-    title: 'Event Footage 3',
-    url: 'https://streamable.com/e/1zcby0?autoplay=0',
-  },
-  {
-    title: 'Event Footage 4',
-    url: 'https://streamable.com/e/xk3ns8?autoplay=0',
-  },
+  { title: 'Event Footage 1', url: 'https://streamable.com/e/zso4ux?autoplay=0' },
+  { title: 'Event Footage 2', url: 'https://streamable.com/e/gkwq5z?autoplay=0' },
+  { title: 'Event Footage 3', url: 'https://streamable.com/e/1zcby0?autoplay=0' },
+  { title: 'Event Footage 4', url: 'https://streamable.com/e/xk3ns8?autoplay=0' },
 ];
 
 function CustomBrandLogo() {
@@ -80,8 +57,7 @@ function CustomBrandLogo() {
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [currentWalkthroughSlide, setCurrentWalkthroughSlide] = useState(0);
+  const [currentSpaceIndex, setCurrentSpaceIndex] = useState(0);
 
   // Past Events Modal state
   const [showPastEventsModal, setShowPastEventsModal] = useState(false);
@@ -106,13 +82,6 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    const slideTimer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % SPACE_IMAGES.length);
-    }, 3500);
-    return () => clearInterval(slideTimer);
-  }, []);
-
-  useEffect(() => {
     const script = document.createElement('script');
     script.src = HONEYBOOK_EMBED_URL;
     script.async = true;
@@ -123,6 +92,16 @@ export default function Home() {
       }
     };
   }, []);
+
+  const nextSpaceMedia = () => {
+    setCurrentSpaceIndex((prev) => (prev + 1) % SPACE_MEDIA.length);
+  };
+
+  const prevSpaceMedia = () => {
+    setCurrentSpaceIndex(
+      (prev) => (prev - 1 + SPACE_MEDIA.length) % SPACE_MEDIA.length
+    );
+  };
 
   const handleWaitlistSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -136,6 +115,8 @@ export default function Home() {
     e.preventDefault();
     setBookingSubmitted(true);
   };
+
+  const currentMedia = SPACE_MEDIA[currentSpaceIndex];
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white selection:bg-[#D4A328] selection:text-black font-sans overflow-x-hidden">
@@ -188,7 +169,7 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Hero Section matching Original Screenshot 4 */}
+      {/* Hero Section */}
       <section className="relative min-h-screen flex items-center px-6 sm:px-12 lg:px-20 overflow-hidden pt-20">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30 scale-105"
@@ -224,10 +205,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Combined Space Gallery & Walkthrough Videos */}
+      {/* The Space Section (Photos + Walkthrough Videos in One Frame) */}
       <section
         id="space"
-        className="py-16 md:py-24 px-4 sm:px-6 max-w-7xl mx-auto space-y-16"
+        className="py-16 md:py-24 px-4 sm:px-6 max-w-7xl mx-auto space-y-12"
       >
         <div className="text-center space-y-3 mb-8 md:mb-12">
           <p className="text-[#D4A328] text-[10px] md:text-xs uppercase tracking-[0.4em] font-medium">
@@ -239,91 +220,51 @@ export default function Home() {
           <div className="w-12 md:w-16 h-0.5 bg-[#D4A328] mx-auto mt-3" />
         </div>
 
-        {/* Space Images Slider */}
-        <div className="relative w-full max-w-5xl mx-auto h-[320px] sm:h-[450px] md:h-[550px] rounded-2xl overflow-hidden border border-neutral-800 shadow-2xl bg-neutral-950">
-          {SPACE_IMAGES.map((src, index) => (
-            <div
-              key={index}
-              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-                index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'
-              }`}
-            >
-              <img
-                src={src}
-                alt={`Space Slide ${index + 1}`}
-                className="w-full h-full object-cover"
-              />
-            </div>
-          ))}
+        {/* Combined Media Player Container */}
+        <div className="relative w-full max-w-5xl mx-auto h-[450px] sm:h-[550px] md:h-[650px] rounded-2xl overflow-hidden border border-neutral-800 shadow-2xl bg-black flex items-center justify-center">
+          {currentMedia.type === 'image' ? (
+            <img
+              src={currentMedia.url}
+              alt={`The Space Media ${currentSpaceIndex + 1}`}
+              className="w-full h-full object-cover transition-opacity duration-500"
+            />
+          ) : (
+            <iframe
+              key={currentMedia.url}
+              src={currentMedia.url}
+              className="w-[300%] h-[180%] border-0 pointer-events-auto"
+              allow="autoplay; fullscreen"
+              allowFullScreen
+            />
+          )}
 
-          <div className="absolute bottom-4 md:bottom-6 left-0 right-0 z-20 flex justify-center gap-1.5 md:gap-2 px-2 overflow-x-auto">
-            {SPACE_IMAGES.map((_, idx) => (
+          {/* Navigation Controls */}
+          <button
+            onClick={prevSpaceMedia}
+            className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 bg-black/80 hover:bg-[#D4A328] text-white hover:text-black w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all text-xs font-bold border border-white/20 z-20 shadow-xl"
+          >
+            ❮
+          </button>
+          <button
+            onClick={nextSpaceMedia}
+            className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 bg-black/80 hover:bg-[#D4A328] text-white hover:text-black w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all text-xs font-bold border border-white/20 z-20 shadow-xl"
+          >
+            ❯
+          </button>
+
+          {/* Indicators */}
+          <div className="absolute bottom-4 md:bottom-6 left-0 right-0 z-20 flex justify-center gap-1.5 md:gap-2 px-4 overflow-x-auto">
+            {SPACE_MEDIA.map((item, idx) => (
               <button
                 key={idx}
-                onClick={() => setCurrentSlide(idx)}
+                onClick={() => setCurrentSpaceIndex(idx)}
                 className={`h-1.5 md:h-2 rounded-full transition-all ${
-                  idx === currentSlide
+                  idx === currentSpaceIndex
                     ? 'w-6 md:w-8 bg-[#D4A328]'
                     : 'w-1.5 md:w-2 bg-white/40'
                 }`}
               />
             ))}
-          </div>
-        </div>
-
-        {/* Space Walkthrough Videos */}
-        <div className="bg-neutral-950/60 p-4 sm:p-8 md:p-12 rounded-2xl md:rounded-3xl border border-neutral-900 mt-12">
-          <h3 className="text-[10px] md:text-xs font-semibold uppercase tracking-[0.3em] text-[#D4A328] mb-6 text-center">
-            Space Walkthroughs
-          </h3>
-
-          <div className="relative w-full max-w-xl md:max-w-3xl mx-auto flex justify-center items-center">
-            <div className="relative w-full h-[500px] sm:h-[600px] md:h-[680px] rounded-2xl overflow-hidden border border-neutral-800 bg-black shadow-2xl flex items-center justify-center">
-              <iframe
-                key={WALKTHROUGH_VIDEOS[currentWalkthroughSlide].url}
-                src={WALKTHROUGH_VIDEOS[currentWalkthroughSlide].url}
-                className="w-[300%] h-[180%] border-0 pointer-events-auto"
-                allow="autoplay; fullscreen"
-                allowFullScreen
-              />
-            </div>
-
-            <button
-              onClick={() =>
-                setCurrentWalkthroughSlide(
-                  (prev) =>
-                    (prev - 1 + WALKTHROUGH_VIDEOS.length) %
-                    WALKTHROUGH_VIDEOS.length
-                )
-              }
-              className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 bg-black/80 hover:bg-[#D4A328] text-white hover:text-black w-10 h-10 rounded-full flex items-center justify-center transition-all text-xs font-bold border border-white/20 z-20 shadow-lg"
-            >
-              ❮
-            </button>
-            <button
-              onClick={() =>
-                setCurrentWalkthroughSlide(
-                  (prev) => (prev + 1) % WALKTHROUGH_VIDEOS.length
-                )
-              }
-              className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 bg-black/80 hover:bg-[#D4A328] text-white hover:text-black w-10 h-10 rounded-full flex items-center justify-center transition-all text-xs font-bold border border-white/20 z-20 shadow-lg"
-            >
-              ❯
-            </button>
-
-            <div className="absolute -bottom-8 left-0 right-0 flex justify-center gap-2">
-              {WALKTHROUGH_VIDEOS.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setCurrentWalkthroughSlide(idx)}
-                  className={`h-1.5 rounded-full transition-all ${
-                    idx === currentWalkthroughSlide
-                      ? 'w-6 bg-[#D4A328]'
-                      : 'w-1.5 bg-white/40'
-                  }`}
-                />
-              ))}
-            </div>
           </div>
         </div>
       </section>
