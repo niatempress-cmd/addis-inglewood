@@ -5,13 +5,6 @@ import { useState, useEffect } from 'react';
 const HONEYBOOK_EMBED_URL =
   'https://widget.honeybook.com/assets_users_production/websiteplacements/placement-controller.min.js?68b9f85eca1058000759b102';
 
-const NAV_LINKS = [
-  { name: 'THE SPACE', href: '#space' },
-  { name: 'PAST EVENTS', href: '#past-events' },
-  { name: 'MEMBERSHIP', href: '#membership' },
-  { name: 'CONTACT', href: '#contact' },
-];
-
 const HERO_IMAGE = 'https://i.ibb.co/kfq11d0/2C4A2804.jpg';
 
 const SPACE_IMAGES = [
@@ -89,6 +82,9 @@ export default function Home() {
   const [scrolled, setScrolled] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [currentWalkthroughSlide, setCurrentWalkthroughSlide] = useState(0);
+
+  // Past Events Modal state
+  const [showPastEventsModal, setShowPastEventsModal] = useState(false);
   const [currentEventSlide, setCurrentEventSlide] = useState(0);
 
   const [waitlistEmail, setWaitlistEmail] = useState('');
@@ -155,15 +151,30 @@ export default function Home() {
           <CustomBrandLogo />
 
           <nav className="hidden md:flex items-center gap-8">
-            {NAV_LINKS.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-[11px] md:text-xs uppercase tracking-[0.25em] text-gray-300 hover:text-[#D4A328] transition-colors font-semibold"
-              >
-                {link.name}
-              </a>
-            ))}
+            <a
+              href="#space"
+              className="text-[11px] md:text-xs uppercase tracking-[0.25em] text-gray-300 hover:text-[#D4A328] transition-colors font-semibold"
+            >
+              THE SPACE
+            </a>
+            <button
+              onClick={() => setShowPastEventsModal(true)}
+              className="text-[11px] md:text-xs uppercase tracking-[0.25em] text-gray-300 hover:text-[#D4A328] transition-colors font-semibold bg-transparent border-0 cursor-pointer"
+            >
+              PAST EVENTS
+            </button>
+            <a
+              href="#membership"
+              className="text-[11px] md:text-xs uppercase tracking-[0.25em] text-gray-300 hover:text-[#D4A328] transition-colors font-semibold"
+            >
+              MEMBERSHIP
+            </a>
+            <a
+              href="#contact"
+              className="text-[11px] md:text-xs uppercase tracking-[0.25em] text-gray-300 hover:text-[#D4A328] transition-colors font-semibold"
+            >
+              CONTACT
+            </a>
           </nav>
 
           <div>
@@ -177,31 +188,35 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center text-center px-4 overflow-hidden">
+      {/* Hero Section matching Original Screenshot 4 */}
+      <section className="relative min-h-screen flex items-center px-6 sm:px-12 lg:px-20 overflow-hidden pt-20">
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40 scale-105"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30 scale-105"
           style={{ backgroundImage: `url('${HERO_IMAGE}')` }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/60 to-black/80 z-10" />
 
-        <div className="relative z-20 max-w-4xl mx-auto space-y-4 md:space-y-6 pt-16 md:pt-20">
-          <p className="text-[#D4A328] text-[10px] md:text-sm uppercase tracking-[0.4em] md:tracking-[0.5em] font-semibold">
-            PRIVATE LOUNGE & SPEAKEASY • INGLEWOOD, CA
+        <div className="relative z-20 max-w-3xl space-y-6 text-left py-12">
+          <p className="text-[#D4A328] text-xs md:text-sm uppercase tracking-[0.4em] font-semibold">
+            — INGLEWOOD, CALIFORNIA
           </p>
-          <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white leading-tight">
-            Addis Inglewood
+
+          <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-normal tracking-tight text-white leading-[1.05]">
+            Inglewood's Premier Elevated Lounge & Creative Venue
           </h1>
 
-          <p className="text-gray-300 text-sm md:text-lg max-w-xl mx-auto font-light tracking-wide leading-relaxed px-2">
-            An intimate speakeasy with bespoke seating and ambient lighting,
-            crafted for exclusive gatherings.
+          <p className="text-gray-300 text-sm md:text-base max-w-xl font-light tracking-wide leading-relaxed">
+            A dark, sculptural sanctuary for private events, creative productions, and an intimate circle of members. Where every evening is composed like a work of art.
           </p>
 
-          <div className="pt-4 md:pt-6">
+          <p className="text-[#D4A328] italic font-serif text-xs md:text-sm font-light">
+            Where Culture Meets Class — Inglewood's Premier Elevated Lounge & Creative Venue
+          </p>
+
+          <div className="pt-4">
             <a
               href="#contact"
-              className="inline-block bg-[#D4A328] hover:bg-[#C29221] text-black font-bold text-xs md:text-sm uppercase tracking-widest px-8 md:px-10 py-3.5 md:py-4 rounded transition-all shadow-xl shadow-[#D4A328]/20"
+              className="inline-block bg-[#D4A328] hover:bg-[#C29221] text-black font-extrabold text-xs uppercase tracking-widest px-8 py-3.5 rounded transition-all shadow-xl shadow-[#D4A328]/20"
             >
               RESERVE THE LOUNGE
             </a>
@@ -209,65 +224,58 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Space Gallery Section */}
+      {/* Combined Space Gallery & Walkthrough Videos */}
       <section
         id="space"
-        className="py-16 md:py-24 px-4 sm:px-6 max-w-7xl mx-auto space-y-16 md:space-y-20"
+        className="py-16 md:py-24 px-4 sm:px-6 max-w-7xl mx-auto space-y-16"
       >
-        <div>
-          <div className="text-center space-y-3 mb-8 md:mb-12">
-            <p className="text-[#D4A328] text-[10px] md:text-xs uppercase tracking-[0.4em] font-medium">
-              EXPLORE THE VENUE
-            </p>
-            <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight">
-              The Space
-            </h2>
-            <div className="w-12 md:w-16 h-0.5 bg-[#D4A328] mx-auto mt-3" />
-          </div>
+        <div className="text-center space-y-3 mb-8 md:mb-12">
+          <p className="text-[#D4A328] text-[10px] md:text-xs uppercase tracking-[0.4em] font-medium">
+            EXPLORE THE VENUE
+          </p>
+          <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight">
+            The Space
+          </h2>
+          <div className="w-12 md:w-16 h-0.5 bg-[#D4A328] mx-auto mt-3" />
+        </div>
 
-          <div className="relative w-full max-w-5xl mx-auto h-[320px] sm:h-[450px] md:h-[550px] rounded-2xl overflow-hidden border border-neutral-800 shadow-2xl bg-neutral-950">
-            {SPACE_IMAGES.map((src, index) => (
-              <div
-                key={index}
-                className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-                  index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'
-                }`}
-              >
-                <img
-                  src={src}
-                  alt={`Space Slide ${index + 1}`}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            ))}
-
-            <div className="absolute bottom-4 md:bottom-6 left-0 right-0 z-20 flex justify-center gap-1.5 md:gap-2 px-2 overflow-x-auto">
-              {SPACE_IMAGES.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setCurrentSlide(idx)}
-                  className={`h-1.5 md:h-2 rounded-full transition-all ${
-                    idx === currentSlide
-                      ? 'w-6 md:w-8 bg-[#D4A328]'
-                      : 'w-1.5 md:w-2 bg-white/40'
-                  }`}
-                />
-              ))}
+        {/* Space Images Slider */}
+        <div className="relative w-full max-w-5xl mx-auto h-[320px] sm:h-[450px] md:h-[550px] rounded-2xl overflow-hidden border border-neutral-800 shadow-2xl bg-neutral-950">
+          {SPACE_IMAGES.map((src, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'
+              }`}
+            >
+              <img
+                src={src}
+                alt={`Space Slide ${index + 1}`}
+                className="w-full h-full object-cover"
+              />
             </div>
+          ))}
+
+          <div className="absolute bottom-4 md:bottom-6 left-0 right-0 z-20 flex justify-center gap-1.5 md:gap-2 px-2 overflow-x-auto">
+            {SPACE_IMAGES.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setCurrentSlide(idx)}
+                className={`h-1.5 md:h-2 rounded-full transition-all ${
+                  idx === currentSlide
+                    ? 'w-6 md:w-8 bg-[#D4A328]'
+                    : 'w-1.5 md:w-2 bg-white/40'
+                }`}
+              />
+            ))}
           </div>
         </div>
 
-        {/* Walkthrough Videos */}
-        <div className="bg-neutral-950/60 p-4 sm:p-8 md:p-12 rounded-2xl md:rounded-3xl border border-neutral-900">
-          <div className="text-center space-y-3 mb-8 md:mb-12">
-            <p className="text-[#D4A328] text-[10px] md:text-xs uppercase tracking-[0.4em] font-medium">
-              VISUAL TOUR
-            </p>
-            <h2 className="font-serif text-2xl md:text-5xl font-bold tracking-tight">
-              Venue Walkthroughs
-            </h2>
-            <div className="w-12 md:w-16 h-0.5 bg-[#D4A328] mx-auto mt-3" />
-          </div>
+        {/* Space Walkthrough Videos */}
+        <div className="bg-neutral-950/60 p-4 sm:p-8 md:p-12 rounded-2xl md:rounded-3xl border border-neutral-900 mt-12">
+          <h3 className="text-[10px] md:text-xs font-semibold uppercase tracking-[0.3em] text-[#D4A328] mb-6 text-center">
+            Space Walkthroughs
+          </h3>
 
           <div className="relative w-full max-w-xl md:max-w-3xl mx-auto flex justify-center items-center">
             <div className="relative w-full h-[500px] sm:h-[600px] md:h-[680px] rounded-2xl overflow-hidden border border-neutral-800 bg-black shadow-2xl flex items-center justify-center">
@@ -310,73 +318,6 @@ export default function Home() {
                   onClick={() => setCurrentWalkthroughSlide(idx)}
                   className={`h-1.5 rounded-full transition-all ${
                     idx === currentWalkthroughSlide
-                      ? 'w-6 bg-[#D4A328]'
-                      : 'w-1.5 bg-white/40'
-                  }`}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Dedicated Past Events Section (Linked from Header) */}
-      <section
-        id="past-events"
-        className="py-16 md:py-24 px-4 sm:px-6 max-w-7xl mx-auto"
-      >
-        <div className="bg-neutral-950/80 p-4 sm:p-8 md:p-12 rounded-2xl md:rounded-3xl border border-neutral-900 shadow-2xl">
-          <div className="text-center space-y-3 mb-8 md:mb-12">
-            <p className="text-[#D4A328] text-[10px] md:text-xs uppercase tracking-[0.4em] font-medium">
-              EVENT ARCHIVES
-            </p>
-            <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight">
-              Past Events
-            </h2>
-            <div className="w-12 md:w-16 h-0.5 bg-[#D4A328] mx-auto mt-3" />
-          </div>
-
-          <div className="relative w-full max-w-xl md:max-w-3xl mx-auto flex justify-center items-center">
-            <div className="relative w-full h-[500px] sm:h-[600px] md:h-[680px] rounded-2xl overflow-hidden border border-neutral-800 bg-black shadow-2xl flex items-center justify-center">
-              <iframe
-                key={PAST_EVENT_VIDEOS[currentEventSlide].url}
-                src={PAST_EVENT_VIDEOS[currentEventSlide].url}
-                className="w-[300%] h-[180%] border-0 pointer-events-auto"
-                allow="autoplay; fullscreen"
-                allowFullScreen
-              />
-            </div>
-
-            <button
-              onClick={() =>
-                setCurrentEventSlide(
-                  (prev) =>
-                    (prev - 1 + PAST_EVENT_VIDEOS.length) %
-                    PAST_EVENT_VIDEOS.length
-                )
-              }
-              className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 bg-black/80 hover:bg-[#D4A328] text-white hover:text-black w-10 h-10 rounded-full flex items-center justify-center transition-all text-xs font-bold border border-white/20 z-20 shadow-lg"
-            >
-              ❮
-            </button>
-            <button
-              onClick={() =>
-                setCurrentEventSlide(
-                  (prev) => (prev + 1) % PAST_EVENT_VIDEOS.length
-                )
-              }
-              className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 bg-black/80 hover:bg-[#D4A328] text-white hover:text-black w-10 h-10 rounded-full flex items-center justify-center transition-all text-xs font-bold border border-white/20 z-20 shadow-lg"
-            >
-              ❯
-            </button>
-
-            <div className="absolute -bottom-8 left-0 right-0 flex justify-center gap-2">
-              {PAST_EVENT_VIDEOS.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setCurrentEventSlide(idx)}
-                  className={`h-1.5 rounded-full transition-all ${
-                    idx === currentEventSlide
                       ? 'w-6 bg-[#D4A328]'
                       : 'w-1.5 bg-white/40'
                   }`}
@@ -623,6 +564,76 @@ export default function Home() {
           <p>201 S MARKET ST, INGLEWOOD, CA 90301</p>
         </div>
       </footer>
+
+      {/* Past Events Video Overlay Modal */}
+      {showPastEventsModal && (
+        <div className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex items-center justify-center p-4">
+          <div className="relative w-full max-w-4xl bg-neutral-950 border border-neutral-800 rounded-3xl p-6 sm:p-10 shadow-2xl space-y-6">
+            <button
+              onClick={() => setShowPastEventsModal(false)}
+              className="absolute top-4 right-4 sm:top-6 sm:right-6 text-gray-400 hover:text-white text-2xl font-bold w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center border border-neutral-700"
+            >
+              ✕
+            </button>
+
+            <div className="text-center space-y-2">
+              <p className="text-[#D4A328] text-[10px] uppercase tracking-[0.4em] font-semibold">
+                EXCLUSIVE ARCHIVES
+              </p>
+              <h3 className="font-serif text-2xl md:text-4xl font-bold">
+                Past Event Footage
+              </h3>
+            </div>
+
+            <div className="relative w-full h-[450px] sm:h-[550px] rounded-2xl overflow-hidden border border-neutral-800 bg-black flex items-center justify-center">
+              <iframe
+                key={PAST_EVENT_VIDEOS[currentEventSlide].url}
+                src={PAST_EVENT_VIDEOS[currentEventSlide].url}
+                className="w-[300%] h-[180%] border-0 pointer-events-auto"
+                allow="autoplay; fullscreen"
+                allowFullScreen
+              />
+
+              <button
+                onClick={() =>
+                  setCurrentEventSlide(
+                    (prev) =>
+                      (prev - 1 + PAST_EVENT_VIDEOS.length) %
+                      PAST_EVENT_VIDEOS.length
+                  )
+                }
+                className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 bg-black/80 hover:bg-[#D4A328] text-white hover:text-black w-10 h-10 rounded-full flex items-center justify-center transition-all text-xs font-bold border border-white/20 z-20"
+              >
+                ❮
+              </button>
+              <button
+                onClick={() =>
+                  setCurrentEventSlide(
+                    (prev) => (prev + 1) % PAST_EVENT_VIDEOS.length
+                  )
+                }
+                className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 bg-black/80 hover:bg-[#D4A328] text-white hover:text-black w-10 h-10 rounded-full flex items-center justify-center transition-all text-xs font-bold border border-white/20 z-20"
+              >
+                ❯
+              </button>
+            </div>
+
+            <div className="flex justify-center gap-2">
+              {PAST_EVENT_VIDEOS.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCurrentEventSlide(idx)}
+                  className={`h-1.5 rounded-full transition-all ${
+                    idx === currentEventSlide
+                      ? 'w-6 bg-[#D4A328]'
+                      : 'w-1.5 bg-white/40'
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
