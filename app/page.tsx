@@ -14,6 +14,11 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-black text-white relative font-sans selection:bg-amber-200 selection:text-black">
       
+      {/* Import Exact Google Font: Cormorant Garamond Light */}
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet" />
+
       {/* 1. HERO SECTION */}
       <section className="relative min-h-screen flex flex-col justify-between px-8 md:px-16 pt-32 pb-12 overflow-hidden">
         {/* Background Overlay & Media */}
@@ -44,27 +49,36 @@ export default function Home() {
           </a>
         </header>
 
-        {/* Hero Content - Matched to Reference Image */}
-        <div className="relative z-10 max-w-5xl mt-16">
-          {/* Top Line Tagline */}
+        {/* HERO CONTENT - Exact text, font, weight & size matching your image */}
+        <div className="relative z-10 max-w-4xl mt-10">
+          
+          {/* Tagline Line */}
           <div className="flex items-center space-x-3 mb-6">
-            <span className="w-10 h-[1px] bg-amber-200/60"></span>
-            <span className="text-[11px] md:text-[12px] uppercase tracking-[0.35em] text-amber-200/80 font-light">
-              PRIVATE LOUNGE &amp; SPEAKEASY • INGLEWOOD, CA
+            <span className="w-8 h-[1px] bg-[#E2C799]/80"></span>
+            <span className="text-[11px] md:text-[12px] uppercase tracking-[0.35em] text-[#E2C799] font-light">
+              INGLEWOOD, CALIFORNIA
             </span>
           </div>
 
-          {/* Main Title - Elegant serif style matching demo picture */}
+          {/* Headline - Exact text and high-end serif styling */}
           <h1 
-            className="text-5xl sm:text-7xl md:text-[88px] font-normal leading-[1.05] text-white/95 mb-8 tracking-tight max-w-4xl"
-            style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+            className="text-5xl sm:text-7xl md:text-[80px] font-light leading-[1.05] text-white mb-8 tracking-tight max-w-3xl"
+            style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
           >
-            Addis Inglewood
+            Inglewood&apos;s Premier Elevated Lounge &amp; Creative Venue
           </h1>
 
           {/* Subtitle Paragraph */}
-          <p className="max-w-xl text-gray-300 text-sm md:text-base leading-relaxed font-light tracking-wide mb-10 opacity-85">
-            An intimate speakeasy with bespoke seating and ambient lighting, crafted for exclusive gatherings.
+          <p className="max-w-xl text-gray-300 text-sm md:text-base leading-relaxed font-light tracking-wide mb-6 opacity-85">
+            A dark, sculptural sanctuary for private events, creative productions, and an intimate circle of members. Where every evening is composed like a work of art.
+          </p>
+
+          {/* Italics Tagline */}
+          <p 
+            className="text-[#E2C799] text-base md:text-lg italic font-light mb-10 tracking-wide"
+            style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
+          >
+            Where Culture Meets Class — Inglewood&apos;s Premier Elevated Lounge &amp; Creative Venue
           </p>
 
           <a 
@@ -83,14 +97,14 @@ export default function Home() {
             EXPLORE THE VENUE
           </span>
           <h2 
-            className="text-4xl md:text-5xl font-serif text-white tracking-tight"
-            style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+            className="text-4xl md:text-5xl font-light text-white tracking-tight"
+            style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
           >
             The Space
           </h2>
         </div>
 
-        {/* Main Interactive Carousel Frame */}
+        {/* Interactive Carousel */}
         <div className="max-w-5xl mx-auto relative rounded-lg overflow-hidden border border-white/10 bg-neutral-900 shadow-2xl">
           <div className="aspect-[16/9] relative">
             <img 
@@ -100,7 +114,6 @@ export default function Home() {
             />
           </div>
 
-          {/* Navigation Dots */}
           <div className="absolute bottom-6 left-0 right-0 flex justify-center space-x-2">
             {spaceImages.map((_, index) => (
               <button
@@ -115,15 +128,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. KITCHEN & MEMBERSHIP WAITLIST SECTION */}
+      {/* 3. KITCHEN COMING SOON SECTION */}
       <section id="membership" className="py-24 px-8 md:px-16 border-t border-white/10 bg-neutral-950/50 relative z-10">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <span className="inline-block px-3 py-1 bg-amber-900/30 border border-amber-500/30 rounded-full text-[10px] tracking-[0.3em] uppercase text-amber-300 mb-4">
             NEW EXPANSION
           </span>
           <h2 
-            className="text-3xl md:text-5xl font-serif text-white uppercase tracking-wider mb-4"
-            style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+            className="text-3xl md:text-5xl font-light text-white uppercase tracking-wider mb-4"
+            style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
           >
             KITCHEN COMING SOON
           </h2>
@@ -132,14 +145,13 @@ export default function Home() {
           </p>
         </div>
 
-        {/* Waitlist Card */}
         <div className="max-w-2xl mx-auto bg-neutral-900/60 border border-white/10 rounded-lg p-8 md:p-12 text-center backdrop-blur-sm">
           <span className="text-[10px] tracking-[0.35em] uppercase text-amber-200/80 font-light block mb-2">
             EXCLUSIVE ACCESS
           </span>
           <h3 
-            className="text-3xl font-serif text-white mb-4"
-            style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+            className="text-3xl font-light text-white mb-4"
+            style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
           >
             Join The Membership Waitlist
           </h3>
@@ -163,15 +175,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. BOOK EVENT / CONTACT FORM SECTION */}
+      {/* 4. BOOK EVENT / CONTACT SECTION */}
       <section id="contact" className="py-24 px-8 md:px-16 border-t border-white/10 relative z-10">
         <div className="text-center mb-12">
           <span className="text-[10px] tracking-[0.35em] uppercase text-amber-200/80 font-light block mb-2">
             INQUIRIES &amp; RESERVATIONS
           </span>
           <h2 
-            className="text-4xl md:text-5xl font-serif text-white tracking-tight"
-            style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+            className="text-4xl md:text-5xl font-light text-white tracking-tight"
+            style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
           >
             Book Your Event
           </h2>
