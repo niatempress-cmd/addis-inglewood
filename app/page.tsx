@@ -5,7 +5,6 @@ import React, { useState } from 'react'
 export default function Home() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
-  // Carousel images matching your venue preview
   const spaceImages = [
     'https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=1920&auto=format&fit=crop',
     'https://images.unsplash.com/photo-1572116469696-31de0f17cc34?q=80&w=1920&auto=format&fit=crop',
@@ -45,23 +44,26 @@ export default function Home() {
           </a>
         </header>
 
-        {/* Hero Content */}
-        <div className="relative z-10 max-w-4xl mt-20">
+        {/* Hero Content - Matched to Reference Image */}
+        <div className="relative z-10 max-w-5xl mt-16">
+          {/* Top Line Tagline */}
           <div className="flex items-center space-x-3 mb-6">
-            <span className="w-8 h-[1px] bg-amber-200/60"></span>
-            <span className="text-[11px] uppercase tracking-[0.35em] text-amber-200/90 font-light">
+            <span className="w-10 h-[1px] bg-amber-200/60"></span>
+            <span className="text-[11px] md:text-[12px] uppercase tracking-[0.35em] text-amber-200/80 font-light">
               PRIVATE LOUNGE &amp; SPEAKEASY • INGLEWOOD, CA
             </span>
           </div>
 
+          {/* Main Title - Elegant serif style matching demo picture */}
           <h1 
-            className="text-6xl sm:text-7xl md:text-8xl font-normal leading-none text-white mb-8 tracking-tight"
+            className="text-5xl sm:text-7xl md:text-[88px] font-normal leading-[1.05] text-white/95 mb-8 tracking-tight max-w-4xl"
             style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
           >
             Addis Inglewood
           </h1>
 
-          <p className="max-w-xl text-gray-300 text-sm md:text-base leading-relaxed font-light tracking-wide mb-10 opacity-90">
+          {/* Subtitle Paragraph */}
+          <p className="max-w-xl text-gray-300 text-sm md:text-base leading-relaxed font-light tracking-wide mb-10 opacity-85">
             An intimate speakeasy with bespoke seating and ambient lighting, crafted for exclusive gatherings.
           </p>
 
@@ -113,7 +115,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. RESTAURANT & MEMBERSHIP WAITLIST SECTION */}
+      {/* 3. KITCHEN & MEMBERSHIP WAITLIST SECTION */}
       <section id="membership" className="py-24 px-8 md:px-16 border-t border-white/10 bg-neutral-950/50 relative z-10">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <span className="inline-block px-3 py-1 bg-amber-900/30 border border-amber-500/30 rounded-full text-[10px] tracking-[0.3em] uppercase text-amber-300 mb-4">
@@ -123,7 +125,7 @@ export default function Home() {
             className="text-3xl md:text-5xl font-serif text-white uppercase tracking-wider mb-4"
             style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
           >
-            RESTAURANT COMING SOON
+            KITCHEN COMING SOON
           </h2>
           <p className="text-gray-400 text-sm font-light">
             Our new culinary concept, adjacent to the private lounge.
