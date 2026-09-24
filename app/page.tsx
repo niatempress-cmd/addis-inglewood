@@ -269,17 +269,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* RESTAURANT COMING SOON BANNER */}
+      {/* KITCHEN COMING SOON BANNER */}
       <section className="bg-gradient-to-r from-neutral-950 via-[#1a1608] to-neutral-950 border-y border-[#D4A328]/30 py-10 md:py-12 px-4 text-center relative z-20 shadow-2xl my-8 md:my-12">
         <div className="max-w-4xl mx-auto space-y-2 md:space-y-3">
           <span className="inline-block bg-[#D4A328]/20 text-[#D4A328] text-[9px] md:text-[10px] uppercase tracking-[0.3em] font-bold px-3 py-1 rounded-full border border-[#D4A328]/40 mb-1">
             NEW EXPANSION
           </span>
           <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-wide">
-            RESTAURANT COMING SOON
+            KITCHEN COMING SOON
           </h2>
           <p className="text-gray-400 text-xs md:text-sm max-w-xl mx-auto font-light">
-            Our new culinary concept, adjacent to the private lounge.
+            Our new culinary experience, opening inside the lounge soon.
           </p>
         </div>
       </section>
